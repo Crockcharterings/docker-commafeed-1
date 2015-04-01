@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/bin/sh -e
 apt-get install -y git-core openjdk-7-jdk maven
 
-git clone https://github.com/Athou/commafeed.git /opt/commafeed
+git clone \
+	https://github.com/Athou/commafeed.git \
+	--depth 1 \
+	--branch 2.1.0 \
+	/opt/commafeed
 
 cd /opt/commafeed
 
