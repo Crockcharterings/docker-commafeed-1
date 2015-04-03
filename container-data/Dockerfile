@@ -1,5 +1,7 @@
 FROM ubuntu
 
+ADD ./data /data
+
 RUN groupadd -r commafeed \
 	&& useradd -r -g commafeed commafeed \
 	&& mkdir -p /data \

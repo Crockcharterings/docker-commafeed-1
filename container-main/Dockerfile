@@ -1,6 +1,6 @@
 FROM ubuntu
 
-ADD ./files /opt
+ADD ./start.sh /opt
 
 RUN groupadd -r commafeed \
   && useradd -r -g commafeed commafeed \
