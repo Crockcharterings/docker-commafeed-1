@@ -1,8 +1,7 @@
 from ubuntu
 
-run apt-get update && apt-get upgrade -y
-
-run apt-get install -y git-core openjdk-7-jdk maven
+run apt-get update && apt-get upgrade -y \
+	&& apt-get install -y git-core openjdk-7-jdk maven
 
 workdir /opt/commafeed
 
