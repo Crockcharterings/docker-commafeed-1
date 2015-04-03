@@ -2,9 +2,9 @@ FROM ubuntu
 
 ADD ./data /data
 
-RUN groupadd -r commafeed \
-	&& useradd -r -g commafeed commafeed \
-	&& mkdir -p /data \
+RUN groupadd --system commafeed \
+	&& useradd --system --gid commafeed commafeed \
+	&& mkdir /data \
 	&& chown -R commafeed:commafeed /data
 
 VOLUME /data

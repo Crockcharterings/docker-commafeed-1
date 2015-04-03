@@ -2,9 +2,9 @@ FROM ubuntu
 
 ADD ./start.sh /opt
 
-RUN groupadd -r commafeed \
-  && useradd -r -g commafeed commafeed \
-  && mkdir -p /opt/commafeed \
+RUN groupadd --system commafeed \
+	&& useradd --system --create-home --gid commafeed commafeed \
+  && mkdir /opt/commafeed \
   && chown -R commafeed:commafeed /opt
 
 RUN apt-get update && apt-get upgrade -y \
