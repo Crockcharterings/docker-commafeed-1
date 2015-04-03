@@ -2,5 +2,7 @@ commafeed:
   build: .
   ports:
    - "8082:8082"
-  volumes:
-   - ./data:/data
+  volumes_from:
+   - data
+data:
+  build: container-data
