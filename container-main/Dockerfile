@@ -1,6 +1,6 @@
 FROM ubuntu
 
-ADD ./start.sh /opt
+ADD ./start.sh /opt/start.sh
 
 RUN groupadd --system commafeed \
 	&& useradd --system --create-home --gid commafeed commafeed \
