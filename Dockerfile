@@ -1,19 +1,19 @@
-from ubuntu
+FROM ubuntu
 
-add ./files /opt
+ADD ./files /opt
 
-run groupadd -r commafeed \
+RUN groupadd -r commafeed \
   && useradd -r -g commafeed commafeed \
   && mkdir -p /opt/commafeed \
   && chown -R commafeed:commafeed /opt
 
-run apt-get update && apt-get upgrade -y \
+RUN apt-get update && apt-get upgrade -y \
 	&& apt-get install -y git-core openjdk-7-jdk maven
 
-workdir /opt/commafeed
-user commafeed
+WORKDIR /opt/commafeed
+USER commafeed
 
-run \
+RUN \
 	git clone \
 	https://github.com/Athou/commafeed.git \
 	--depth 1 \
@@ -21,8 +21,8 @@ run \
 	. \
 	&& git checkout 68f9852790211575f91cab6815445acd3e96cffd
 
-run mvn clean package
+RUN mvn clean package
 
-volume /data
+VOLUME /data
 
-cmd /opt/start.sh
+CMD /opt/start.sh

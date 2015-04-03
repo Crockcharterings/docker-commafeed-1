@@ -1,10 +1,10 @@
-from ubuntu
+FROM ubuntu
 
-run groupadd -r commafeed \
+RUN groupadd -r commafeed \
 	&& useradd -r -g commafeed commafeed \
 	&& mkdir -p /data \
 	&& chown -R commafeed:commafeed /data
 
-volume /data
-user commafeed
-cmd ["echo", "Data container for commafeed"]
+VOLUME /data
+USER commafeed
+CMD ["echo", "Data container for commafeed"]
