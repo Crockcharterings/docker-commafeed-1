@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM busybox
 
 RUN \
 	groupadd --system commafeed --gid 50000 \
