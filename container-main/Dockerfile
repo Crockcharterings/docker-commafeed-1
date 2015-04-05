@@ -4,8 +4,6 @@ RUN \
 	groupadd --system commafeed --gid 50000 \
 	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed
 
-ADD ./start.sh /opt/start.sh
-
 RUN \
 	mkdir /opt/commafeed \
   && chown -R commafeed:commafeed /opt
@@ -28,4 +26,4 @@ RUN mvn clean package
 
 VOLUME /data
 
-CMD /opt/start.sh
+CMD java -jar target/commafeed.jar server /data/config.yml
