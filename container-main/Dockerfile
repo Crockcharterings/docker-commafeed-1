@@ -1,15 +1,15 @@
-FROM ubuntu
+FROM maven:3-jdk-8
+
+RUN \
+	apt-get update \
+	&& apt-get install -y git-core \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN \
 	groupadd --system commafeed --gid 50000 \
-	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed
-
-RUN \
-	mkdir /opt/commafeed \
+	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed \
+	&& mkdir /opt/commafeed \
   && chown -R commafeed:commafeed /opt
-
-RUN apt-get update && apt-get upgrade -y \
-	&& apt-get install -y git-core openjdk-7-jdk maven
 
 WORKDIR /opt/commafeed
 USER commafeed
