@@ -1,10 +1,12 @@
 FROM ubuntu
 
+RUN \
+	groupadd --system commafeed --gid 50000 \
+	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed
+
 ADD ./data /data
 
-RUN groupadd --system commafeed \
-	&& useradd --system --gid commafeed commafeed \
-	&& chown -R commafeed:commafeed /data
+RUN chown -R commafeed:commafeed /data
 
 VOLUME /data
 USER commafeed

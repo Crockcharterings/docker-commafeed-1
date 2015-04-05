@@ -1,10 +1,13 @@
 FROM ubuntu
 
+RUN \
+	groupadd --system commafeed --gid 50000 \
+	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed
+
 ADD ./start.sh /opt/start.sh
 
-RUN groupadd --system commafeed \
-	&& useradd --system --create-home --gid commafeed commafeed \
-  && mkdir /opt/commafeed \
+RUN \
+	mkdir /opt/commafeed \
   && chown -R commafeed:commafeed /opt
 
 RUN apt-get update && apt-get upgrade -y \
