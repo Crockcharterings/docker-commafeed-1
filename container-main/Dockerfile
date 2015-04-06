@@ -9,7 +9,7 @@ RUN \
 	groupadd --system commafeed --gid 50000 \
 	&& useradd --system --create-home --gid commafeed --uid 50000 commafeed \
 	&& mkdir /opt/commafeed \
-  && chown -R commafeed:commafeed /opt
+	&& chown -R commafeed:commafeed /opt
 
 WORKDIR /opt/commafeed
 USER commafeed
