@@ -13,9 +13,13 @@ RUN { \
 		-fsSL \
 		"https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)"; \
 	chmod +x /usr/bin/gosu; \
-}
 
-ADD https://github.com/Athou/commafeed/releases/download/2.3.0/commafeed.jar /opt/commafeed.jar
+	# install commafeed
+	curl \
+		-o /opt/commafeed.jar \
+		-fsSL \
+		"https://github.com/Athou/commafeed/releases/download/2.3.0/commafeed.jar"; \
+}
 
 VOLUME /data/commafeed
 
