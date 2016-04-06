@@ -21,7 +21,7 @@ RUN { \
 	apt-get install --no-install-recommends -y $BUILD_DEPS; \
 
 	# install commafeed
-	git clone https://github.com/Athou/commafeed.git --depth 1 --branch 2.1.0 /tmp/commafeed: \
+	git clone https://github.com/Athou/commafeed.git --depth 1 --branch 2.1.0 /tmp/commafeed; \
 	cd /tmp/commafeed; \
 	git checkout 68f9852790211575f91cab6815445acd3e96cffd; \
 	mvn package; \
