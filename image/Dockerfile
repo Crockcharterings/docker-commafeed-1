@@ -19,5 +19,5 @@ VOLUME /data/commafeed
 
 COPY commafeed.yaml /etc/
 
-COPY start-commfeed /usr/bin
+COPY start-commafeed /usr/bin
 CMD ["start-commafeed"]
