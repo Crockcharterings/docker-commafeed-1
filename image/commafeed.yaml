@@ -96,10 +96,6 @@ server:
 
 logging:
   level: WARN
-  loggers:
-    com.commafeed: INFO
-    liquibase: INFO
-    io.dropwizard.server.ServerFactory: INFO
   appenders:
     - type: console
 
