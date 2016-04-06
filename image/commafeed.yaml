@@ -13,6 +13,9 @@ app:
   # put your google analytics tracking code here
   googleAnalyticsTrackingCode:
 
+  # put your google server key (used for youtube favicon fetching)
+  googleAuthKey:
+
   # number of http threads
   backgroundThreads: 3
 
@@ -78,12 +81,10 @@ database:
   password: sa
   properties:
     charSet: UTF-8
-    maxWaitForConnection: 1s
-    validationQuery: "/* CommaFeed Health Check */ SELECT 1"
-    minSize: 1
-    maxSize: 50
-    checkConnectionWhileIdle: true
-    maxConnectionAge: 30m
+  validationQuery: "/* CommaFeed Health Check */ SELECT 1"
+  minSize: 1
+  maxSize: 50
+  maxConnectionAge: 30m
 
 server:
   applicationConnectors:
