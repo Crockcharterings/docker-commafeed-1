@@ -73,7 +73,7 @@ app:
 
 database:
   driverClass: org.h2.Driver
-  url: jdbc:h2:/data/db;mv_store=false
+  url: jdbc:h2:/data/commafeed/db;mv_store=false
   user: sa
   password: sa
   properties:
@@ -101,13 +101,6 @@ logging:
     io.dropwizard.server.ServerFactory: INFO
   appenders:
     - type: console
-    - type: file
-      currentLogFilename: log/commafeed.log
-      threshold: ALL
-      archive: true
-      archivedLogFilenamePattern: log/commafeed-%d.log
-      archivedFileCount: 5
-      timeZone: UTC
 
 # Redis pool configuration
 # (only used if app.cache is 'redis')

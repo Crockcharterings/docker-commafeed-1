@@ -1,8 +1,0 @@
-main:
-  build: ./container-main
-  ports:
-   - "8082:8082"
-  volumes_from:
-   - data
-data:
-  build: ./container-data

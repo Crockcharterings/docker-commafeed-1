@@ -1,0 +1,5 @@
+#!/bin/sh -ex
+
+chown commafeed:commafeed -R /data/commafeed
+
+exec gosu commafeed:commafeed java -jar /opt/commafeed.jar server /etc/commafeed.yaml $@
