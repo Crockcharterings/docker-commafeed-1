@@ -1,4 +1,4 @@
-FROM chpio/gosu:jessie
+FROM java:8-jre
 
 RUN { \
 	set -ex; \
@@ -7,10 +7,12 @@ RUN { \
 	groupadd --system --gid 1000 commafeed; \
 	useradd --system --uid 1000 --gid 1000 commafeed; \
 
-	# install runtime deps
-	apt-get update; \
-	apt-get install --no-install-recommends -y openjdk-7-jre-headless ca-certificates; \
-	rm -rf /var/lib/apt/lists/*; \
+	# install gosu
+	curl \
+		-o /usr/bin/gosu \
+		-fsSL \
+		"https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)"; \
+	chmod +x /usr/bin/gosu; \
 }
 
 ADD https://github.com/Athou/commafeed/releases/download/2.3.0/commafeed.jar /opt/commafeed.jar
