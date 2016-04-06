@@ -18,7 +18,7 @@ RUN { \
 	curl \
 		-o /opt/commafeed.jar \
 		-fsSL \
-		"https://github.com/Athou/commafeed/releases/download/2.3.0/commafeed.jar"; \
+		"https://github.com/Athou/commafeed/releases/download/2.2.0/commafeed.jar"; \
 }
 
 VOLUME /data/commafeed
