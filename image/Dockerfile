@@ -23,7 +23,7 @@ RUN { \
 
 VOLUME /data/commafeed
 
-COPY commafeed.yaml /etc/
+COPY commafeed.yaml /opt/
 
 COPY start-commafeed /usr/bin
 CMD ["start-commafeed"]
