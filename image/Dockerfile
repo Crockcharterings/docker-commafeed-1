@@ -11,7 +11,7 @@ RUN { \
 	curl \
 		-o /usr/bin/gosu \
 		-fsSL \
-		"https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)"; \
+		"https://github.com/tianon/gosu/releases/download/1.8/gosu-$(dpkg --print-architecture)"; \
 	chmod +x /usr/bin/gosu; \
 
 	# install commafeed
