@@ -2,23 +2,26 @@ FROM openjdk:8-jre-slim
 
 RUN { \
 	set -ex; \
+	# install deps
+	DEPS="gosu"; \
+	BUILD_DEPS="curl"; \
+	apt-get update; \
+	apt-get install --no-install-recommends -y $DEPS $BUILD_DEPS; \
 
 	# add user & group
 	groupadd --system --gid 1000 commafeed; \
 	useradd --system --uid 1000 --gid 1000 commafeed; \
-
-	# install gosu
-	curl \
-		-o /usr/bin/gosu \
-		-fsSL \
-		"https://github.com/tianon/gosu/releases/download/1.8/gosu-$(dpkg --print-architecture)"; \
-	chmod +x /usr/bin/gosu; \
 
 	# install commafeed
 	curl \
 		-o /opt/commafeed.jar \
 		-fsSL \
 		"https://github.com/Athou/commafeed/releases/download/2.4.0/commafeed.jar"; \
+
+	# clean up
+	apt-get remove -y $BUILD_DEPS; \
+	apt-get autoremove -y; \
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
 }
 
 VOLUME /data/commafeed
